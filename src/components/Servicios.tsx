@@ -9,7 +9,7 @@ const services = [
     icon: "📋",
     title: "Asesoramiento Impositivo",
     description:
-      "Liquidación de impuestos nacionales y provinciales, IVA, Ganancias, Ingresos Brutos y planificación fiscal estratégica.",
+      "Liquidación de impuestos, IVA, Ganancias, Ingresos Brutos y planificación fiscal estratégica.",
   },
   {
     icon: "🔍",
