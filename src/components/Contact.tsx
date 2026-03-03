@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { sendEmail } from "../actions/send-email";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -15,11 +16,15 @@ export default function Contact() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
-    // Aquí conectás con tu backend / servicio de email
-    console.log("Form submitted:", form);
-    setSent(true);
+    const result = await sendEmail(form);
+  
+    if (result.success) {
+        setSent(true);
+    } else {
+        alert("Hubo un error al enviar el mensaje. Reintente más tarde.");
+    }
   };
 
   return (
